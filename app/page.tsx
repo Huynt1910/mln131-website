@@ -1,65 +1,52 @@
-import Image from "next/image";
+import Link from "next/link";
+
+import FeatureCards from "@/src/components/home/FeatureCards";
+import HeroSection from "@/src/components/home/HeroSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="bg-[linear-gradient(135deg,#eef2ff,#ffffff_48%,#fef3c7)]">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <HeroSection />
+        <FeatureCards />
+
+        <section className="mt-8 grid gap-4 rounded-[2rem] border border-indigo-100 bg-white p-6 shadow-sm lg:grid-cols-[1fr_0.9fr] lg:p-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-sky-600">
+              Mục tiêu học tập
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-indigo-950">
+              Nhận diện đúng, tranh luận rõ, kết luận có cơ sở
+            </h2>
+            <p className="mt-4 leading-8 text-slate-600">
+              Website này biến phần thuyết trình thành một hoạt động có tương
+              tác: người xem học khái niệm, luyện với tình huống đời sống, sau
+              đó tự kiểm tra bằng quiz.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            {["Tôn giáo không đồng nghĩa với mê tín", "Tín ngưỡng truyền thống có giá trị văn hóa", "Mê tín dị đoan có thể gây hại và bị lợi dụng"].map(
+              (message) => (
+                <div
+                  key={message}
+                  className="rounded-2xl bg-slate-50 p-4 text-sm font-bold leading-6 text-slate-700"
+                >
+                  {message}
+                </div>
+              ),
+            )}
+          </div>
+        </section>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/learn"
+            className="rounded-full bg-indigo-950 px-7 py-3 text-sm font-black text-white shadow-lg shadow-indigo-950/20 transition hover:bg-indigo-800"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Bắt đầu lộ trình
+          </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
